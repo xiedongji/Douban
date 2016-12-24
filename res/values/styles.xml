@@ -1,18 +1,5 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 基础应用主题, 依赖于API level. 这个主题在更新的设备上是会被AppBaseTheme里面配置样式 替换掉   -->
-    <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
-    </style>
 
-    <!-- 应用主题 -->
-    <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-    </style>
-    
     <style name="tabItemTextTitle">
         <item name="android:textSize">12dip</item>
         <item name="android:textColor">@drawable/tab_main_nav_text_selector</item>

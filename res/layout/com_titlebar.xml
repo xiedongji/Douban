@@ -4,10 +4,11 @@
     <LinearLayout
         android:id="@+id/title_bar"
         android:layout_width="fill_parent"
-        android:layout_height="35.0dip"
+        android:layout_height="65.0dip"
         android:background="@drawable/title_bg_night"
         android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingLeft="12dip" >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -36,10 +37,11 @@
         <ImageButton
             android:id="@+id/btn_back"
             android:layout_width="60.0dip"
-            android:layout_height="29.0dip"
+            android:layout_height="36dip"
             android:layout_gravity="center"
             android:layout_marginRight="5.0dip"
             android:background="@android:color/transparent"
+            android:scaleType="fitXY"
             android:src="@drawable/back_night_selector" />
     </LinearLayout>
 

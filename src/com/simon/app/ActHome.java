@@ -32,66 +32,66 @@ public class ActHome extends TabActivity {
         mTabHost.addTab(tabSearch());
         mTabHost.addTab(tabAbout());
         
-        //ÉèÖÃÄ¬ÈÏÏÔÊ¾µ±Ç°tab
-        mTabHost.setCurrentTabByTag("newBook");
+        //è®¾ç½®é»˜è®¤æ˜¾ç¤ºå½“å‰tab
+        mTabHost.setCurrentTabByTag("myDouban");
     }
     
-    //Éú³ÉÎÒµÄ¶¹°êtab item 
+    //ç”Ÿæˆæˆ‘çš„è±†ç“£tab item 
     private TabSpec tabMyDouban(){
     	TabSpec spec = mTabHost.newTabSpec("myDouban");
-    	//Ö¸¶¨±êÇ©ÏÔÊ¾µÄÄÚÈİ£¬¼¤»îµÄActivity¶ÔÓ¦µÄ¶ÔÏó
+    	//æŒ‡å®šæ ‡ç­¾æ˜¾ç¤ºçš„å†…å®¹ï¼Œæ¿€æ´»çš„Activityå¯¹åº”çš„å¯¹è±¡
     	Intent intent = new Intent(this, ActMyDouban.class);
     	spec.setContent(intent);
-    	//ÉèÖÃ±êÇ©µÄÎÄ×ÖºÍÑùÊ½
-    	spec.setIndicator(genTabItemView("ÎÒµÄ¶¹°ê",R.drawable.tab_main_nav_me));
+    	//è®¾ç½®æ ‡ç­¾çš„æ–‡å­—å’Œæ ·å¼
+    	spec.setIndicator(genTabItemView("æˆ‘çš„è±†ç“£",R.drawable.tab_main_nav_me));
     	return spec;
     }
     
-  //Éú³ÉÎÒµÄ¶¹°êtab item 
+  //ç”Ÿæˆæˆ‘çš„è±†ç“£tab item 
     private TabSpec tabNewbook(){
     	TabSpec spec = mTabHost.newTabSpec("newBook");
-    	//Ö¸¶¨±êÇ©ÏÔÊ¾µÄÄÚÈİ£¬¼¤»îµÄActivity¶ÔÓ¦µÄ¶ÔÏó
+    	//æŒ‡å®šæ ‡ç­¾æ˜¾ç¤ºçš„å†…å®¹ï¼Œæ¿€æ´»çš„Activityå¯¹åº”çš„å¯¹è±¡
     	Intent intent = new Intent(this, ActNewbook.class);
     	spec.setContent(intent);
-    	//ÉèÖÃ±êÇ©µÄÎÄ×ÖºÍÑùÊ½
-    	spec.setIndicator(genTabItemView("ĞÂÊé",R.drawable.tab_main_nav_book));
+    	//è®¾ç½®æ ‡ç­¾çš„æ–‡å­—å’Œæ ·å¼
+    	spec.setIndicator(genTabItemView("æ–°ä¹¦",R.drawable.tab_main_nav_book));
     	return spec;
     }
     
-  //Éú³ÉÎÒµÄ¶¹°êtab item 
+  //ç”Ÿæˆæˆ‘çš„è±†ç“£tab item 
     private TabSpec tabBookReview(){
     	TabSpec spec = mTabHost.newTabSpec("bookReview");
-    	//Ö¸¶¨±êÇ©ÏÔÊ¾µÄÄÚÈİ£¬¼¤»îµÄActivity¶ÔÓ¦µÄ¶ÔÏó
+    	//æŒ‡å®šæ ‡ç­¾æ˜¾ç¤ºçš„å†…å®¹ï¼Œæ¿€æ´»çš„Activityå¯¹åº”çš„å¯¹è±¡
     	Intent intent = new Intent(this, ActBookReview.class);
     	spec.setContent(intent);
-    	//ÉèÖÃ±êÇ©µÄÎÄ×ÖºÍÑùÊ½
-    	spec.setIndicator(genTabItemView("ÊéÆÀ",R.drawable.detail_comment_selected));
+    	//è®¾ç½®æ ‡ç­¾çš„æ–‡å­—å’Œæ ·å¼
+    	spec.setIndicator(genTabItemView("ä¹¦è¯„",R.drawable.detail_comment_selected));
     	return spec;
     }
     
-    //Éú³ÉÎÒµÄ¶¹°êtab item 
+    //ç”Ÿæˆæˆ‘çš„è±†ç“£tab item 
     private TabSpec tabSearch(){
     	TabSpec spec = mTabHost.newTabSpec("serach");
-    	//Ö¸¶¨±êÇ©ÏÔÊ¾µÄÄÚÈİ£¬¼¤»îµÄActivity¶ÔÓ¦µÄ¶ÔÏó
+    	//æŒ‡å®šæ ‡ç­¾æ˜¾ç¤ºçš„å†…å®¹ï¼Œæ¿€æ´»çš„Activityå¯¹åº”çš„å¯¹è±¡
     	Intent intent = new Intent(this, ActSearch.class);
     	spec.setContent(intent);
-    	//ÉèÖÃ±êÇ©µÄÎÄ×ÖºÍÑùÊ½
-    	spec.setIndicator(genTabItemView("ËÑË÷",R.drawable.tab_main_nav_search));
+    	//è®¾ç½®æ ‡ç­¾çš„æ–‡å­—å’Œæ ·å¼
+    	spec.setIndicator(genTabItemView("æœç´¢",R.drawable.tab_main_nav_search));
     	return spec;
     }
     
-  //Éú³ÉÎÒµÄ¶¹°êtab item 
+  //ç”Ÿæˆæˆ‘çš„è±†ç“£tab item 
     private TabSpec tabAbout(){
     	TabSpec spec = mTabHost.newTabSpec("serach");
-    	//Ö¸¶¨±êÇ©ÏÔÊ¾µÄÄÚÈİ£¬¼¤»îµÄActivity¶ÔÓ¦µÄ¶ÔÏó
+    	//æŒ‡å®šæ ‡ç­¾æ˜¾ç¤ºçš„å†…å®¹ï¼Œæ¿€æ´»çš„Activityå¯¹åº”çš„å¯¹è±¡
     	Intent intent = new Intent(this, ActAbout.class);
     	spec.setContent(intent);
-    	//ÉèÖÃ±êÇ©µÄÎÄ×ÖºÍÑùÊ½
-    	spec.setIndicator(genTabItemView("¹ØÓÚ",R.drawable.tab_main_nav_more));
+    	//è®¾ç½®æ ‡ç­¾çš„æ–‡å­—å’Œæ ·å¼
+    	spec.setIndicator(genTabItemView("å…³äº",R.drawable.tab_main_nav_more));
     	return spec;
     }
 
-    //×é×°Ã¿¸öIconÊÓÍ¼View
+    //ç»„è£…æ¯ä¸ªIconè§†å›¾View
 	private View genTabItemView(String tabItemTitle, int tabItemIcon) {
 		View view = mInflater.inflate(R.layout.tab_bar_item, null);
 		ImageView ivIcon = (ImageView) view.findViewById(R.id.ivTabItemIcon);

@@ -29,37 +29,48 @@ public final class R {
         public static final int back_night=0x7f020001;
         public static final int back_night_selector=0x7f020002;
         public static final int back_on_night=0x7f020003;
-        public static final int detail_comment_selected=0x7f020004;
-        public static final int logo=0x7f020005;
-        public static final int tab_main_nav_book=0x7f020006;
-        public static final int tab_main_nav_me=0x7f020007;
-        public static final int tab_main_nav_more=0x7f020008;
-        public static final int tab_main_nav_off=0x7f020009;
-        public static final int tab_main_nav_on=0x7f02000a;
-        public static final int tab_main_nav_search=0x7f02000b;
-        public static final int tab_main_nav_selector=0x7f02000c;
-        public static final int tab_main_nav_text_selector=0x7f02000d;
-        public static final int title_bg_night=0x7f02000e;
-        public static final int welcome_gradient=0x7f02000f;
+        public static final int background=0x7f020004;
+        public static final int category_selector=0x7f020005;
+        public static final int detail_comment_selected=0x7f020006;
+        public static final int director_icon=0x7f020007;
+        public static final int logo=0x7f020008;
+        public static final int tab_main_nav_book=0x7f020009;
+        public static final int tab_main_nav_me=0x7f02000a;
+        public static final int tab_main_nav_more=0x7f02000b;
+        public static final int tab_main_nav_off=0x7f02000c;
+        public static final int tab_main_nav_on=0x7f02000d;
+        public static final int tab_main_nav_search=0x7f02000e;
+        public static final int tab_main_nav_selector=0x7f02000f;
+        public static final int tab_main_nav_text_selector=0x7f020010;
+        public static final int title_bg_night=0x7f020011;
+        public static final int welcome_gradient=0x7f020012;
     }
     public static final class id {
-        public static final int LLWelcome=0x7f080002;
-        public static final int btn_back=0x7f080005;
-        public static final int ivTabItemIcon=0x7f080007;
-        public static final int llTabItem=0x7f080006;
-        public static final int logo=0x7f080000;
-        public static final int title_bar=0x7f080003;
-        public static final int tvTabItemTitle=0x7f080008;
-        public static final int tv_header_title=0x7f080004;
-        public static final int versionCode=0x7f080001;
+        public static final int LLWelcome=0x7f080006;
+        public static final int btnLogin=0x7f080002;
+        public static final int btn_back=0x7f08000b;
+        public static final int etPassword=0x7f080001;
+        public static final int etUsername=0x7f080000;
+        public static final int ivArrow=0x7f080005;
+        public static final int ivTabItemIcon=0x7f08000d;
+        public static final int llTabItem=0x7f08000c;
+        public static final int logo=0x7f080007;
+        public static final int lvMy=0x7f080003;
+        public static final int title_bar=0x7f080009;
+        public static final int tvTabItemTitle=0x7f08000e;
+        public static final int tvTitle=0x7f080004;
+        public static final int tv_header_title=0x7f08000a;
+        public static final int versionCode=0x7f080008;
     }
     public static final class layout {
         public static final int act_home=0x7f030000;
-        public static final int act_mydouban=0x7f030001;
-        public static final int act_newbook=0x7f030002;
-        public static final int act_welcome=0x7f030003;
-        public static final int com_titlebar=0x7f030004;
-        public static final int tab_bar_item=0x7f030005;
+        public static final int act_login=0x7f030001;
+        public static final int act_mydouban=0x7f030002;
+        public static final int act_mydouban_lv_item=0x7f030003;
+        public static final int act_newbook=0x7f030004;
+        public static final int act_welcome=0x7f030005;
+        public static final int com_titlebar=0x7f030006;
+        public static final int tab_bar_item=0x7f030007;
     }
     public static final class string {
         /**   全局 
@@ -73,13 +84,7 @@ public final class R {
         public static final int wel_version=0x7f060003;
     }
     public static final class style {
-        /**  基础应用主题, 依赖于API level. 这个主题在更新的设备上是会被AppBaseTheme里面配置样式 替换掉   
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
+        /** 
         Base application theme for API 11+. This theme completely replaces
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     
@@ -91,11 +96,7 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
-        /**  应用主题 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static final int AppTheme=0x7f070001;
-        public static final int tabItemTextTitle=0x7f070002;
+        public static final int AppBaseTheme=0x7f070001;
+        public static final int tabItemTextTitle=0x7f070000;
     }
 }

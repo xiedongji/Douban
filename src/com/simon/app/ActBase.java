@@ -13,9 +13,9 @@ public abstract class ActBase extends Activity {
         this.setListener();
     }
     
-    //ÊÓÍ¼×é¼ş³õÊ¼»¯
+    //è§†å›¾ç»„ä»¶åˆå§‹åŒ–
     protected abstract void initView();
     
-    //°ó¶¨¼àÌıÆ÷
+    //ç»‘å®šç›‘å¬å™¨
     protected abstract void setListener();
 }

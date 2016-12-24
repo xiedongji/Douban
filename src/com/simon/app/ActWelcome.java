@@ -19,23 +19,23 @@ import android.widget.TextView;
 public class ActWelcome extends ActBase  {
 	private TextView versionNumber;
 	private LinearLayout mLLWelcome;
-	private static final int WELCOME_TIME = 1000;
+	private static final int WELCOME_TIME = 3000; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        
-        //ÉèÖÃ°æ±¾±àºÅ
+        //è®¾ç½®ç‰ˆæœ¬ç¼–å·
         versionNumber.setText(this.getVersion());
         
-        //ÅĞ¶Ïµ±Ç°ÍøÂç×´Ì¬
+        //åˆ¤æ–­å½“å‰ç½‘ç»œçŠ¶æ€
         if (isNetworkConnected()) {
-			//×öÒ»¸ö¶¯»­£¬½øÈëÖ÷½çÃæ
+			//åšä¸€ä¸ªåŠ¨ç”»ï¼Œè¿›å…¥ä¸»ç•Œé¢
         	AlphaAnimation aa = new AlphaAnimation(0.5f, 1.0f);
         	aa.setDuration(WELCOME_TIME);
         	mLLWelcome.setAnimation(aa);
         	mLLWelcome.startAnimation(aa);
-        	//Í¨¹ıhandler ÑÓÊ±2Ãë Ö´ĞĞÈÎÎñ
+        	//é€šè¿‡handler å»¶æ—¶2ç§’ æ‰§è¡Œä»»åŠ¡
         	new Handler().postDelayed(new RedirectActHomeTask(), WELCOME_TIME);
 		}else{
 			this.showSetNetworkDialog();
@@ -51,27 +51,27 @@ public class ActWelcome extends ActBase  {
 		}
     }
     
-    //µ¯³öÍøÂçÁ¬½Ó¶Ô»°¿ò
+    //å¼¹å‡ºç½‘ç»œè¿æ¥å¯¹è¯æ¡†
     private void showSetNetworkDialog(){
     	AlertDialog.Builder builder = new Builder(this);
-    	builder.setTitle("ÉèÖÃÍøÂç");
-    	builder.setMessage("ÍøÂç´íÎó!Çë¼ì²éÍøÂç×´Ì¬");
+    	builder.setTitle("è®¾ç½®ç½‘ç»œ");
+    	builder.setMessage("ç½‘ç»œé”™è¯¯!è¯·æ£€æŸ¥ç½‘ç»œçŠ¶æ€");
     	
-    	builder.setPositiveButton("ÉèÖÃÍøÂç", new OnClickListener() {
+    	builder.setPositiveButton("è®¾ç½®ç½‘ç»œ", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				//ÀàÃûÒ»¶¨Òª°üº¬°üÃû Õâ¸öAndroid 4.0ºóµÄËÆºõ²»ÄÜÓÃÅ¶
+				//ç±»åä¸€å®šè¦åŒ…å«åŒ…å è¿™ä¸ªAndroid 4.0åçš„ä¼¼ä¹ä¸èƒ½ç”¨å“¦
 //				Intent intent = new Intent();
 //				intent.setClassName("com.android.settings", "com.android.settings.WirelessSettings");
 				
-				//Android5.0µÄ°æ±¾¿ÉÒÔÊ¹ÓÃ
+				//Android5.0çš„ç‰ˆæœ¬å¯ä»¥ä½¿ç”¨
 				Intent intent = new Intent("android.settings.WIFI_SETTINGS");
 				startActivity(intent);
 				finish();
 			}
 		});
     	
-    	builder.setNegativeButton("È¡Ïû", new OnClickListener() {
+    	builder.setNegativeButton("å–æ¶ˆ", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				finish();
@@ -81,7 +81,7 @@ public class ActWelcome extends ActBase  {
     	builder.create().show();
     }
     
-    //»ñÈ¡APP°æ±¾
+    //è·å–APPç‰ˆæœ¬
     private String getVersion(){
     	try {
 			PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -92,12 +92,12 @@ public class ActWelcome extends ActBase  {
 		}
     }
     
-    //ÅĞ¶ÏÍøÂç×´Ì¬
+    //åˆ¤æ–­ç½‘ç»œçŠ¶æ€
     private boolean isNetworkConnected(){
     	ConnectivityManager conMgr = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
     	NetworkInfo info = conMgr.getActiveNetworkInfo();
     	
-    	//ÅĞ¶ÏÊÇ·ñÁ¬½ÓWifi
+    	//åˆ¤æ–­æ˜¯å¦è¿æ¥Wifi
 //		WifiManager  wifimanager =  (WifiManager) getSystemService(WIFI_SERVICE);
 //		wifimanager.isWifiEnabled();
 //		wifimanager.getWifiState();
