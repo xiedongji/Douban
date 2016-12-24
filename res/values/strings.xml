@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Douban</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-
+    <!--  全局 -->
+    <string name="app_name">豆瓣</string>
+    <string name="my_douban">豆瓣</string>
+    
+    <!--  欢迎页面 -->
+    <string name="wel_title">(豆瓣客户端)</string>
+    <string name="wel_version">版本号0.0</string>
+    
+    <string name="login">用户登陆</string>
 </resources>
