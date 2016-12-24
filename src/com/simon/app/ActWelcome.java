@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class ActWelcome extends ActBase  {
 	private TextView versionNumber;
 	private LinearLayout mLLWelcome;
-	private static final int WELCOME_TIME = 3000; 
+	private static final int WELCOME_TIME = 1000; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

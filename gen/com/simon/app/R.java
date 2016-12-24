@@ -30,20 +30,21 @@ public final class R {
         public static final int back_night_selector=0x7f020002;
         public static final int back_on_night=0x7f020003;
         public static final int background=0x7f020004;
-        public static final int category_selector=0x7f020005;
-        public static final int detail_comment_selected=0x7f020006;
-        public static final int director_icon=0x7f020007;
-        public static final int logo=0x7f020008;
-        public static final int tab_main_nav_book=0x7f020009;
-        public static final int tab_main_nav_me=0x7f02000a;
-        public static final int tab_main_nav_more=0x7f02000b;
-        public static final int tab_main_nav_off=0x7f02000c;
-        public static final int tab_main_nav_on=0x7f02000d;
-        public static final int tab_main_nav_search=0x7f02000e;
-        public static final int tab_main_nav_selector=0x7f02000f;
-        public static final int tab_main_nav_text_selector=0x7f020010;
-        public static final int title_bg_night=0x7f020011;
-        public static final int welcome_gradient=0x7f020012;
+        public static final int background_selected=0x7f020005;
+        public static final int category_selector=0x7f020006;
+        public static final int detail_comment_selected=0x7f020007;
+        public static final int director_icon=0x7f020008;
+        public static final int logo=0x7f020009;
+        public static final int tab_main_nav_book=0x7f02000a;
+        public static final int tab_main_nav_me=0x7f02000b;
+        public static final int tab_main_nav_more=0x7f02000c;
+        public static final int tab_main_nav_off=0x7f02000d;
+        public static final int tab_main_nav_on=0x7f02000e;
+        public static final int tab_main_nav_search=0x7f02000f;
+        public static final int tab_main_nav_selector=0x7f020010;
+        public static final int tab_main_nav_text_selector=0x7f020011;
+        public static final int title_bg_night=0x7f020012;
+        public static final int welcome_gradient=0x7f020013;
     }
     public static final class id {
         public static final int LLWelcome=0x7f080006;
