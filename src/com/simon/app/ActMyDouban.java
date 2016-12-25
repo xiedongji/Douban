@@ -13,9 +13,12 @@ public class ActMyDouban extends ActBase implements OnItemClickListener {
 	private ListView mListView;
 	private SharedPreferences mSharedPreferences;
 	private static final String[] arrList = { "我读", "我看", "我听", "我评", "我的日记",
-			"我的资料", "小组", "我的aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa资料", "我的aaaaaaaaaaaaaaaaaaa资料",
-			"我的aaaaaaaaaaaaaaaaaaa资料", "我的aaaaaaaaaaaaaaaaaaa资料",
-			"我的aaaaaaaaaaaaaaaaaaa资料", "我的aaaaaaaaaaaaaaaaaaa资料" };
+			"我的资料", "小组" };
+	
+	@Override
+	protected void proLogic() {
+		
+	}
 
 	@Override
 	protected void initView() {
@@ -53,5 +56,7 @@ public class ActMyDouban extends ActBase implements OnItemClickListener {
 	protected void setListener() {
 
 	}
+
+	
 
 }

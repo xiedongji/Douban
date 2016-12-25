@@ -15,7 +15,7 @@ import android.widget.TextView;
 @SuppressWarnings("deprecation")
 public class ActHome extends TabActivity {
 	private TabHost mTabHost;
-	private LayoutInflater mInflater;
+	private LayoutInflater mTabItemInflater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,7 @@ public class ActHome extends TabActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.act_home);
         
-        mInflater = LayoutInflater.from(this);
+        mTabItemInflater = LayoutInflater.from(this);
         
         mTabHost = getTabHost();
         mTabHost.addTab(tabMyDouban());
@@ -93,7 +93,7 @@ public class ActHome extends TabActivity {
 
     //组装每个Icon视图View
 	private View genTabItemView(String tabItemTitle, int tabItemIcon) {
-		View view = mInflater.inflate(R.layout.tab_bar_item, null);
+		View view = mTabItemInflater.inflate(R.layout.tab_bar_item, null);
 		ImageView ivIcon = (ImageView) view.findViewById(R.id.ivTabItemIcon);
 		TextView tvTitle = (TextView) view.findViewById(R.id.tvTabItemTitle);
 		

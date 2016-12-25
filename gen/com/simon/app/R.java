@@ -47,21 +47,22 @@ public final class R {
         public static final int welcome_gradient=0x7f020013;
     }
     public static final class id {
-        public static final int LLWelcome=0x7f080006;
+        public static final int LLWelcome=0x7f080007;
+        public static final int btnExit=0x7f080003;
         public static final int btnLogin=0x7f080002;
-        public static final int btn_back=0x7f08000b;
+        public static final int btn_back=0x7f08000c;
         public static final int etPassword=0x7f080001;
         public static final int etUsername=0x7f080000;
-        public static final int ivArrow=0x7f080005;
-        public static final int ivTabItemIcon=0x7f08000d;
-        public static final int llTabItem=0x7f08000c;
-        public static final int logo=0x7f080007;
-        public static final int lvMy=0x7f080003;
-        public static final int title_bar=0x7f080009;
-        public static final int tvTabItemTitle=0x7f08000e;
-        public static final int tvTitle=0x7f080004;
-        public static final int tv_header_title=0x7f08000a;
-        public static final int versionCode=0x7f080008;
+        public static final int ivArrow=0x7f080006;
+        public static final int ivTabItemIcon=0x7f08000e;
+        public static final int llTabItem=0x7f08000d;
+        public static final int logo=0x7f080008;
+        public static final int lvMy=0x7f080004;
+        public static final int title_bar=0x7f08000a;
+        public static final int tvTabItemTitle=0x7f08000f;
+        public static final int tvTitle=0x7f080005;
+        public static final int tv_header_title=0x7f08000b;
+        public static final int versionCode=0x7f080009;
     }
     public static final class layout {
         public static final int act_home=0x7f030000;

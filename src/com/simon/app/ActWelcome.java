@@ -20,12 +20,10 @@ public class ActWelcome extends ActBase  {
 	private TextView versionNumber;
 	private LinearLayout mLLWelcome;
 	private static final int WELCOME_TIME = 1000; 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-       
-        //设置版本编号
+	
+	@Override
+	protected void proLogic() {
+		 //设置版本编号
         versionNumber.setText(this.getVersion());
         
         //判断当前网络状态
@@ -40,7 +38,7 @@ public class ActWelcome extends ActBase  {
 		}else{
 			this.showSetNetworkDialog();
 		}
-    }
+	}
     
     private class RedirectActHomeTask implements Runnable{
 		@Override

@@ -1,6 +1,11 @@
 package com.simon.app;
 
 public class ActNewbook extends ActBase {
+	
+	@Override
+	protected void proLogic() {
+		
+	}
 
 	@Override
 	protected void initView() {

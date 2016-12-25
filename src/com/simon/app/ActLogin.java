@@ -1,7 +1,12 @@
 package com.simon.app;
 
 public class ActLogin extends ActBase {
-
+	
+	@Override
+	protected void proLogic() {
+		// TODO Auto-generated method stub
+		
+	}
 	@Override
 	protected void initView() {
 		setContentView(R.layout.act_login);
@@ -12,5 +17,7 @@ public class ActLogin extends ActBase {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }

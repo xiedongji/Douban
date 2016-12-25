@@ -11,7 +11,11 @@ public abstract class ActBase extends Activity {
         super.onCreate(savedInstanceState);
         this.initView();
         this.setListener();
+        this.proLogic();
     }
+    
+    //处理业务逻辑
+    protected abstract void proLogic();
     
     //视图组件初始化
     protected abstract void initView();

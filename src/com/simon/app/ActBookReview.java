@@ -3,8 +3,15 @@ package com.simon.app;
 public class ActBookReview extends ActBase {
 
 	@Override
+	protected void proLogic() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
 	protected void initView() {
-		setContentView(R.layout.act_newbook);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -12,5 +19,6 @@ public class ActBookReview extends ActBase {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }
