@@ -25,15 +25,39 @@
         android:layout_height="wrap_content"
         android:hint="input password..." />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/captchaET"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="captcha here..." />
+
+        <ImageView
+            android:id="@+id/captchaIV"
+            android:layout_width="120dip"
+            android:layout_height="50dip"
+            android:adjustViewBounds="false"
+            android:scaleType="fitXY"
+            android:src="@drawable/oacode" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dip"
+        android:background="@drawable/btn_white_selector"
         android:text="登陆" />
+
     <Button
         android:id="@+id/btnExit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dip"
+        android:background="@drawable/btn_white_selector"
         android:text="退出" />
 
 </LinearLayout>
