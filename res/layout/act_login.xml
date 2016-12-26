@@ -14,13 +14,13 @@
         android:src="@drawable/logo" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/unameET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="input username ..." />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/pwdET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="input password..." />

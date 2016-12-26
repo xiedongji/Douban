@@ -59,17 +59,17 @@ public final class R {
         public static final int btn_back=0x7f08000e;
         public static final int captchaET=0x7f080002;
         public static final int captchaIV=0x7f080003;
-        public static final int etPassword=0x7f080001;
-        public static final int etUsername=0x7f080000;
         public static final int ivArrow=0x7f080008;
         public static final int ivTabItemIcon=0x7f080010;
         public static final int llTabItem=0x7f08000f;
         public static final int logo=0x7f08000a;
         public static final int lvMy=0x7f080006;
+        public static final int pwdET=0x7f080001;
         public static final int title_bar=0x7f08000c;
         public static final int tvTabItemTitle=0x7f080011;
         public static final int tvTitle=0x7f080007;
         public static final int tv_header_title=0x7f08000d;
+        public static final int unameET=0x7f080000;
         public static final int versionCode=0x7f08000b;
     }
     public static final class layout {
@@ -85,13 +85,15 @@ public final class R {
     public static final class string {
         /**   全局 
          */
-        public static final int app_name=0x7f060000;
-        public static final int login=0x7f060004;
-        public static final int my_douban=0x7f060001;
+        public static final int app_name=0x7f060002;
+        public static final int captchaUrl=0x7f060001;
+        public static final int login=0x7f060006;
+        public static final int loginUrl=0x7f060000;
+        public static final int my_douban=0x7f060003;
         /**   欢迎页面 
          */
-        public static final int wel_title=0x7f060002;
-        public static final int wel_version=0x7f060003;
+        public static final int wel_title=0x7f060004;
+        public static final int wel_version=0x7f060005;
     }
     public static final class style {
         /** 

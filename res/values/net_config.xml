@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="loginUrl">http://dev.blog.com/doIn</string>
+    <string name="captchaUrl">http://dev.blog.com/verify</string>
+
+</resources>

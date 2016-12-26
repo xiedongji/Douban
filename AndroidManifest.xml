@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
-            android:name=".ActLogin"
+            android:name="com.simon.app.ui.ActLogin"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,38 +25,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--          <activity
-            android:name=".ActWelcome"
+        <!--
+              <activity
+            android:name=".ui.ActWelcome"
             android:label="@string/my_douban" >
-        </activity> -->
+        </activity>
+        -->
         <activity
-            android:name=".ActHome"
+            android:name=".ui.ActHome"
             android:label="@string/my_douban" >
         </activity>
         <activity
-            android:name=".ActMyDouban"
+            android:name=".ui.ActMyDouban"
             android:label="@string/my_douban" >
         </activity>
         <activity
-            android:name=".ActNewbook"
+            android:name=".ui.ActNewbook"
             android:label="@string/my_douban" >
         </activity>
         <activity
-            android:name=".ActBookReview"
+            android:name=".ui.ActBookReview"
             android:label="@string/my_douban" >
         </activity>
         <activity
-            android:name=".ActSearch"
+            android:name=".ui.ActSearch"
             android:label="@string/my_douban" >
         </activity>
         <activity
-            android:name=".ActAbout"
+            android:name=".ui.ActAbout"
             android:label="@string/my_douban" >
         </activity>
-<!--         <activity
-            android:name=".ActLogin"
+        <!--
+             <activity
+            android:name=".ui.ActLogin"
             android:label="@string/my_douban" >
-        </activity> -->
+        </activity>
+        -->
     </application>
 
 </manifest>
