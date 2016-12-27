@@ -1,6 +1,6 @@
 package com.simon.app;
 
-public class Config {
+public class AppConfig {
 
 	// ===========调试开发部分===================
 	public static final boolean isShowLog = true;// 是否打印Log
@@ -13,4 +13,8 @@ public class Config {
 
 	public static final String URL_LOGIN = URL_HTTP_ROOT + "doIn";
 	public static final String URL_CAPTCHA = URL_HTTP_ROOT + "verify";
+	
+	// ===========系统保存钥匙===================
+		public static final String SP_KEY  = "simonKey";//SharedPreferences保存的钥匙
+		public static final String SESSION_ID  = "session_id";//SharedPreferences保存的钥匙
 }

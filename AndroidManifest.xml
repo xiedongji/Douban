@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
-            android:name="com.simon.app.ui.ActLogin"
+            android:name=".ui.ActWelcome"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,7 @@
               <activity
             android:name=".ui.ActWelcome"
             android:label="@string/my_douban" >
-        </activity>
+        </activity>
         -->
         <activity
             android:name=".ui.ActHome"
@@ -55,12 +55,14 @@
             android:name=".ui.ActAbout"
             android:label="@string/my_douban" >
         </activity>
-        <!--
-             <activity
+        <activity
             android:name=".ui.ActLogin"
             android:label="@string/my_douban" >
         </activity>
-        -->
+        <activity
+            android:name=".ui.ActMyInfo"
+            android:label="@string/my_douban" >
+        </activity>
     </application>
 
 </manifest>

@@ -20,6 +20,11 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -28,10 +33,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import com.simon.app.Config;
+import com.simon.app.AppConfig;
 import com.simon.app.R;
 import com.simon.app.util.ILog;
 import com.simon.app.util.ITips;
+import com.simon.app.util.UtilNet;
 
 public class ActLogin extends ActBase implements OnClickListener {
 	
@@ -41,6 +47,7 @@ public class ActLogin extends ActBase implements OnClickListener {
 	private EditText mUsernameET, mPwdET, mCaptchaET;
 	private Button mLoginBtn, mExitBtn;
 	private ImageView mCaptchaIV;
+	private Bitmap  mPicCode;
 
 	private ProgressDialog mProgressDialog;
 
@@ -91,7 +98,6 @@ public class ActLogin extends ActBase implements OnClickListener {
 			break;
 
 		case R.id.captchaIV:
-			ITips.toast(this, "test");
 			this.getCaptcha();
 			break;
 		}
@@ -108,9 +114,9 @@ public class ActLogin extends ActBase implements OnClickListener {
 			public void run() {
 				// 发送登陆请求
 				@SuppressWarnings("deprecation")
-				HttpPost httpPost = new HttpPost(Config.URL_LOGIN);
+				HttpPost httpPost = new HttpPost(AppConfig.URL_LOGIN);
 				
-				ILog.show("HTTP", Config.URL_LOGIN);
+				ILog.show("LOGIN", AppConfig.URL_LOGIN);
 				// 拼装数据
 				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 				nameValuePairs.add(new BasicNameValuePair("uname", name));
@@ -124,10 +130,10 @@ public class ActLogin extends ActBase implements OnClickListener {
 					// 开始请求
 					HttpResponse response = client.execute(httpPost);
 
-					ILog.show("HTTP","responseCode:"+response.getStatusLine().getStatusCode());
+					ILog.show("LOGIN","responseCode:"+response.getStatusLine().getStatusCode());
 					// 解析成html
 					Source jsonRes = new Source(response.getEntity().getContent());
-					ILog.show("HTTP","responseContent:"+jsonRes.toString());
+					ILog.show("LOGIN","responseContent:"+jsonRes.toString());
 					
 					//解析json
 					JSONTokener jsonParser = new JSONTokener(jsonRes.toString());
@@ -135,10 +141,15 @@ public class ActLogin extends ActBase implements OnClickListener {
 					String code = loginRes.getString("code");
 					String msg = loginRes.getString("msg");
 					
-					ILog.show("HTTP","responseParse:"+code+":"+msg);
+					ILog.show("LOGIN","responseParse:"+code+":"+msg);
 					Message handlerMsg = new Message();
 					if ("1".equals(code)) {
 						handlerMsg.what = LOGIN_SUCCESS;
+						//登陆状态 保存到SP
+						SharedPreferences sp = getSharedPreferences(AppConfig.SP_KEY, Context.MODE_PRIVATE);
+						Editor editor = sp.edit();
+						editor.putString(AppConfig.SESSION_ID, "1");
+						editor.commit();
 					}else{
 						handlerMsg.what = LOGIN_FAIL;
 					}
@@ -147,7 +158,7 @@ public class ActLogin extends ActBase implements OnClickListener {
 
 					// 获取登陆成功的cookie
 					CookieStore cookie = client.getCookieStore();
-					ILog.show("HTTP","responseCookie:"+cookie);
+					ILog.show("LOGIN","responseCookie:"+cookie);
 				} catch (UnsupportedEncodingException e) {
 					e.printStackTrace();
 				} catch (ClientProtocolException e) {
@@ -164,8 +175,33 @@ public class ActLogin extends ActBase implements OnClickListener {
 
 	// 获取图形验证码
 	private void getCaptcha() {
-		String loginUrl = getResources().getString(R.string.loginUrl);
-		ILog.show("HTTP","xmlURL:"+loginUrl);
+		
+		new AsyncTask<Void, Void, Void>() {
+
+			@Override
+			protected void onPreExecute() {
+				super.onPreExecute();
+				ILog.show("LOGIN", AppConfig.URL_CAPTCHA);
+			}
+
+			@Override
+			protected void onPostExecute(Void result) {
+				super.onPostExecute(result);
+				mCaptchaIV.setImageBitmap(mPicCode);
+			}
+
+			@Override
+			protected Void doInBackground(Void... params) {
+				try {
+					mPicCode = UtilNet.getImage(AppConfig.URL_CAPTCHA);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return null;
+			}
+			
+			
+		}.execute();
 	}
 	
 	private Handler handler = new Handler(){
@@ -177,6 +213,7 @@ public class ActLogin extends ActBase implements OnClickListener {
 			switch (msg.what) {
 				case LOGIN_SUCCESS:
 					ITips.toast(ActLogin.this, msg.obj.toString());
+					redirectTo(ActHome.class);
 					break;
 				case LOGIN_FAIL:
 					ITips.toast(ActLogin.this, msg.obj.toString());
