@@ -1,6 +1,6 @@
 package com.simon.app.ui;
 
-import com.simon.app.AppConfig;
+import com.simon.app.Config;
 import com.simon.app.R;
 import com.simon.app.R.id;
 import com.simon.app.R.layout;
@@ -23,7 +23,7 @@ public class ActMyDouban extends ActBase implements OnItemClickListener {
 	
 	@Override
 	protected void proLogic() {
-		mSharedPreferences = getSharedPreferences(AppConfig.SP_KEY,Context.MODE_PRIVATE);
+		mSharedPreferences = getSharedPreferences(Config.SP_KEY,Context.MODE_PRIVATE);
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class ActMyDouban extends ActBase implements OnItemClickListener {
 
 	// 判断用户是否获取到了授权
 	private boolean isUserLogin() {
-		String accessToken = mSharedPreferences.getString(AppConfig.SESSION_ID, null);
+		String accessToken = mSharedPreferences.getString(Config.SESSION_ID, null);
 
 		if (accessToken == null) {
 			return false;

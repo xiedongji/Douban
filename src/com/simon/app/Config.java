@@ -7,6 +7,10 @@ public class Config {
 	public static final boolean isTagSame = false;// 所有的TAG标签都一样
 	public static final String TagName = "IBlog";// 所有的TAG标签都一样
 	
+	// ===========系统配置部分===================
+	public static final String SP_KEY = "sp_key";
+	public static final String SESSION_ID = "session_id";
+	
 	// =========== API接口请求状态部分===================
 	public static final  int API_SUCCESS = 10;
 	public static final  int API_FAIL = 20;
