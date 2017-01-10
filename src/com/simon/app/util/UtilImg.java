@@ -9,7 +9,7 @@ import javax.net.ssl.HttpsURLConnection;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
-public class UtilNet {
+public class UtilImg {
 	
 	//获取图像验证码
 	public static Bitmap getImage(String imgUrl) throws IOException{

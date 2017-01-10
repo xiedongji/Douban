@@ -1,20 +1,8 @@
 package com.simon.app.ui;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.CookieStore;
 
-import net.htmlparser.jericho.Source;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.CookieStore;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -30,13 +18,11 @@ import android.widget.ImageView;
 
 import com.simon.app.Config;
 import com.simon.app.R;
+import com.simon.app.util.HttpUtils;
 import com.simon.app.util.ILog;
 import com.simon.app.util.ITips;
 
 public class ActLogin extends ActBase implements OnClickListener {
-	
-	private static final int LOGIN_SUCCESS = 0x01;
-	private static final int LOGIN_FAIL = 0x02;
 	
 	private EditText mUsernameET, mPwdET, mCaptchaET;
 	private Button mLoginBtn, mExitBtn;
@@ -107,55 +93,31 @@ public class ActLogin extends ActBase implements OnClickListener {
 			@Override
 			public void run() {
 				// 发送登陆请求
-				@SuppressWarnings("deprecation")
-				HttpPost httpPost = new HttpPost(Config.URL_LOGIN);
-				
 				ILog.show("HTTP", Config.URL_LOGIN);
 				// 拼装数据
-				List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-				nameValuePairs.add(new BasicNameValuePair("uname", name));
-				nameValuePairs.add(new BasicNameValuePair("pwd", pwd));
-
+				String paramStr = "uname="+name+"&pwd="+pwd;
+				ILog.show("HTTP","param:"+paramStr);
+				
+				String httpRes = HttpUtils.doPost(Config.URL_LOGIN, paramStr);
+				ILog.show("HTTP","httpRes:"+httpRes);
+				
 				try {
-					UrlEncodedFormEntity entity = new UrlEncodedFormEntity(nameValuePairs, "UTF-8");
-					httpPost.setEntity(entity);
-					// 创建一个浏览器
-					DefaultHttpClient client = new DefaultHttpClient();
-					// 开始请求
-					HttpResponse response = client.execute(httpPost);
-
-					ILog.show("HTTP","responseCode:"+response.getStatusLine().getStatusCode());
-					// 解析成html
-					Source jsonRes = new Source(response.getEntity().getContent());
-					ILog.show("HTTP","responseContent:"+jsonRes.toString());
-					
-					//解析json
-					JSONTokener jsonParser = new JSONTokener(jsonRes.toString());
+					JSONTokener jsonParser = new JSONTokener(httpRes);
 					JSONObject loginRes = (JSONObject) jsonParser.nextValue();
-					String code = loginRes.getString("code");
-					String msg = loginRes.getString("msg");
-					
-					ILog.show("HTTP","responseParse:"+code+":"+msg);
-					Message handlerMsg = new Message();
-					if ("1".equals(code)) {
-						handlerMsg.what = LOGIN_SUCCESS;
-					}else{
-						handlerMsg.what = LOGIN_FAIL;
-					}
-					handlerMsg.obj = msg;
-					handler.sendMessage(handlerMsg);
-
-					// 获取登陆成功的cookie
-					CookieStore cookie = client.getCookieStore();
-					ILog.show("HTTP","responseCookie:"+cookie);
-				} catch (UnsupportedEncodingException e) {
-					e.printStackTrace();
-				} catch (ClientProtocolException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
+				
+	                String code = loginRes.getString("code");
+	                String msg = loginRes.getString("msg");
+	                
+	                Message handlerMsg = new Message();
+	                if ("10".equals(code)) {
+	                    handlerMsg.what = Config.API_SUCCESS;
+	                }else{
+	                    handlerMsg.what = Config.API_FAIL;
+	                }
+	                handlerMsg.obj = msg;
+	                handler.sendMessage(handlerMsg);
+                
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -175,10 +137,10 @@ public class ActLogin extends ActBase implements OnClickListener {
 			mProgressDialog.dismiss();
 			
 			switch (msg.what) {
-				case LOGIN_SUCCESS:
+				case Config.API_SUCCESS:
 					ITips.toast(ActLogin.this, msg.obj.toString());
 					break;
-				case LOGIN_FAIL:
+				case Config.API_FAIL:
 					ITips.toast(ActLogin.this, msg.obj.toString());
 					break;
 			}

@@ -17,12 +17,14 @@
         android:id="@+id/unameET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="qwe123"
         android:hint="input username ..." />
 
     <EditText
         android:id="@+id/pwdET"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="qwe123"
         android:hint="input password..." />
 
     <LinearLayout
@@ -35,6 +37,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="1268"
             android:hint="captcha here..." />
 
         <ImageView
