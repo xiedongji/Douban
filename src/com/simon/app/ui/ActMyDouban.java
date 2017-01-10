@@ -1,8 +1,10 @@
 package com.simon.app.ui;
 
+import com.simon.app.AppConfig;
 import com.simon.app.R;
 import com.simon.app.R.id;
 import com.simon.app.R.layout;
+import com.simon.app.util.ITips;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,13 +23,13 @@ public class ActMyDouban extends ActBase implements OnItemClickListener {
 	
 	@Override
 	protected void proLogic() {
-		
+		mSharedPreferences = getSharedPreferences(AppConfig.SP_KEY,Context.MODE_PRIVATE);
 	}
 
 	@Override
 	protected void initView() {
 		setContentView(R.layout.act_mydouban);
-		mSharedPreferences = getSharedPreferences("config",Context.MODE_PRIVATE);
+		
 		mListView = (ListView) findViewById(R.id.lvMy);
 		mListView.setAdapter(new ArrayAdapter<String>(this,R.layout.act_mydouban_lv_item, R.id.tvTitle, arrList));
 		mListView.setOnItemClickListener(this);
@@ -35,10 +37,9 @@ public class ActMyDouban extends ActBase implements OnItemClickListener {
 
 	// 判断用户是否获取到了授权
 	private boolean isUserLogin() {
-		String accessToken = mSharedPreferences.getString("accessToken", null);
-		String tokenSecret = mSharedPreferences.getString("tokenSecret", null);
+		String accessToken = mSharedPreferences.getString(AppConfig.SESSION_ID, null);
 
-		if (accessToken == null || tokenSecret == null) {
+		if (accessToken == null) {
 			return false;
 		} else {
 			return true;
@@ -49,10 +50,10 @@ public class ActMyDouban extends ActBase implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
 		if (isUserLogin()) {
 			// 进入到对应界面
+			redirectTo(ActMyInfo.class);
 		} else {
 			// 跳转到登陆界面
-			Intent intent = new Intent(this, ActLogin.class);
-			startActivity(intent);
+			redirectTo(ActLogin.class);
 		}
 	}
 

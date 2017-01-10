@@ -2,12 +2,12 @@ package com.simon.app.util;
 
 import android.util.Log;
 
-import com.simon.app.Config;
+import com.simon.app.AppConfig;
 
 public class ILog {
 
 	public static void show(String TAG, String msg){
-		if (!Config.isShowLog) {
+		if (!AppConfig.isShowLog) {
 			return ;
 		}
 		show(TAG, msg, Log.INFO);
@@ -19,7 +19,7 @@ public class ILog {
 	 * @param level  1-info; 2-debug; 3-verbose
 	 */
 	public static void show(String TAG, String msg, int level) {
-		if (!Config.isShowLog) {
+		if (!AppConfig.isShowLog) {
 			return ;
 		}
 		
